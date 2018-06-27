@@ -1,0 +1,19 @@
+{
+  "name": "terraceag_react_project",
+  "version": "1.0.0",
+  "description": "Applet to dynamically store user data in a table",
+  "main": "main.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/afleischer/terraceag_react_project.git"
+  },
+  "author": "afleischer",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/afleischer/terraceag_react_project/issues"
+  },
+  "homepage": "https://github.com/afleischer/terraceag_react_project#readme"
+}

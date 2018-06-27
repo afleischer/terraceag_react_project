@@ -56,6 +56,8 @@ class App extends React.Component {
 
     onRedoAction;
 
+    MainTable;
+
 
     render(){
         return (
