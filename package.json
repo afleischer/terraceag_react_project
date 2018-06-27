@@ -4,7 +4,9 @@
   "description": "Applet to dynamically store user data in a table",
   "main": "main.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "build": "webpack",
+    "start": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,17 @@
   "bugs": {
     "url": "https://github.com/afleischer/terraceag_react_project/issues"
   },
-  "homepage": "https://github.com/afleischer/terraceag_react_project#readme"
+  "homepage": "https://github.com/afleischer/terraceag_react_project#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.12.2",
+    "webpack-dev-server": "^3.1.4"
+  }
 }
