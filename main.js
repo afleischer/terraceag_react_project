@@ -1,12 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react';
 
-import onInputChange from './input';
-import ButtonMenu from './buttonmenu';
-import onUndoAction from './undo';
-import MainTable from './maintable';
-import onRedoAction from './redo';
-import broadcast from './broadcast';
+
+//Components
+import MainTable from './app/components/input_table/maintable';
+import ButtonMenu from './app/components/button_menu/buttonmenu';
+
+//App Logic
+import onUndoAction from './app/undo';
+import onRedoAction from './app/redo';
+import onInputChange from './app/input';
+
+//Session logic
+import broadcast from './services/session/broadcast';
 
 class App extends React.Component {
 
