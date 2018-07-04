@@ -1,7 +1,7 @@
 import React from 'react';
+import {App} from 'react';
 
-
-const onUndoAction = function onUndoAction(event){
+export default function onUndoAction(event){
 
     //Need to prevent error throw on undefined 
 
@@ -83,5 +83,3 @@ const onUndoAction = function onUndoAction(event){
     
    }
 }
-
-export default onUndoAction;

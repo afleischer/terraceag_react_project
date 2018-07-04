@@ -1,5 +1,7 @@
 import React from 'react';
 
+import {App} from '../../../main';
+
 const MainTable = function MainTable(event){
 
         //Idea 1: for each element of the table, make sure to 

@@ -14,7 +14,18 @@ import onInputChange from './app/input';
 //Session logic
 import broadcast from './services/session/broadcast';
 
-class App extends React.Component {
+function foo() {
+  console.log("bar");
+}
+
+let MainTableF = new MainTable;
+let onUndoActionF = new onUndoAction;
+let onRedoActionF = new onRedoAction;
+let onInputChangeF = new onInputChange;
+let broadcastF = new broadcast;
+let fooF = new foo;
+
+export default class App extends React.Component {
 
     constructor(props){
       //properties
@@ -43,6 +54,7 @@ class App extends React.Component {
         redo: ["empty"],
       }
 
+      this.foo = this.foo.bind(this);
       this.onInputChange = this.onInputChange.bind(this);
       this.onRowButton = this.onRowButton.bind(this);
       this.onColumnButton = this.onColumnButton.bind(this);
@@ -55,15 +67,17 @@ class App extends React.Component {
 
     //Pull in external functions
 
-    broadcast;
+    fooF;
 
-    onInputChange;
+    broadcastF;
 
-    onUndoAction;
+    onInputChangeF;
 
-    onRedoAction;
+    onUndoActionF;
 
-    MainTable;
+    onRedoActionF;
+
+    MainTableF;
 
 
     render(){
@@ -71,7 +85,7 @@ class App extends React.Component {
           <div>
           <table id = {this.props.tableID}>
           <tbody onload = {this.broadcast}>  
-            {this.MainTable()}
+            {this.MainTableF}
           </tbody>
           </table>
           <ButtonMenu onRow = {this.onRowButton} onCol = {this.onColumnButton} undo ={this.onUndoAction} redo = {this.onRedoAction} reset = {this.onResetAction} />
