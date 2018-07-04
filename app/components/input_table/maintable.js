@@ -2,7 +2,7 @@ import React from 'react';
 
 import {App} from '../../../main';
 
-const MainTable = function MainTable(event){
+export const MainTable = () => {
 
         //Idea 1: for each element of the table, make sure to 
       
@@ -83,4 +83,4 @@ const MainTable = function MainTable(event){
               return gridArray;
 }
 
-export default MainTable;
+//export default MainTable;

@@ -18,19 +18,31 @@ function foo() {
   console.log("bar");
 }
 
+/*
 let MainTableF = new MainTable;
 let onUndoActionF = new onUndoAction;
 let onRedoActionF = new onRedoAction;
 let onInputChangeF = new onInputChange;
 let broadcastF = new broadcast;
 let fooF = new foo;
+*/
 
 export default class App extends React.Component {
 
     constructor(props){
       //properties
       super(props);
-      this.props.inputId = 0
+      //this.props.inputId = 0;
+        //Bind "this" to functions
+      //this.foo = this.foo.bind(this);
+      this.onInputChange = this.onInputChange.bind(this);
+      this.onRowButton = this.onRowButton.bind(this);
+      this.onColumnButton = this.onColumnButton.bind(this);
+      this.onUndoAction = this.onUndoAction.bind(this);
+      this.onRedoAction = this.onRedoAction.bind(this);
+      this.MainTable = this.MainTable.bind(this);
+      this.onResetAction = this.onResetAction.bind(this);
+      this.broadcast = this.broadcast.bind(this);
   
   
       //state
@@ -54,19 +66,21 @@ export default class App extends React.Component {
         redo: ["empty"],
       }
 
-      this.foo = this.foo.bind(this);
-      this.onInputChange = this.onInputChange.bind(this);
-      this.onRowButton = this.onRowButton.bind(this);
-      this.onColumnButton = this.onColumnButton.bind(this);
-      this.onUndoAction = this.onUndoAction.bind(this);
-      this.onRedoAction = this.onRedoAction.bind(this);
-      this.MainTable = this.MainTable.bind(this);
-      this.onResetAction = this.onResetAction.bind(this);
-      this.broadcast = this.broadcast.bind(this);
+      
     }
-
+  
     //Pull in external functions
 
+//MainTable;
+/*
+ onUndoActionF = new onUndoAction;
+ onRedoActionF = new onRedoAction;
+ onInputChangeF = new onInputChange;
+ broadcastF = new broadcast;
+ fooF = new foo;
+ */
+
+ /*
     fooF;
 
     broadcastF;
@@ -78,6 +92,44 @@ export default class App extends React.Component {
     onRedoActionF;
 
     MainTableF;
+*/ 
+
+      MainTable(){
+        MainTable;
+      }
+
+      broadcast(){
+        broadcast;
+      }
+
+      onInputChange(){
+        onInputChange;
+      }
+
+      onUndoAction(){
+        onUndoAction;
+      }
+
+        onRedoAction(){
+          onRedoAction;
+        }
+
+    /*
+UNSAFE_componentWillMount(){
+    foo(){
+      fooF;
+    }
+    broadcastF;
+
+    onInputChangeF;
+
+    onUndoActionF;
+
+    onRedoActionF;
+
+    MainTableF;
+}
+*/
 
 
     render(){

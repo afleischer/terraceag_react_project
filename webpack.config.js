@@ -24,6 +24,8 @@ module.exports = {
         filename: 'transformed.js',
         path: __dirname + '/build'
     },
-    plugins: [HTMLWebpackPluginConfig]
+    mode: 'development',
+    plugins: [HTMLWebpackPluginConfig],
+    devtool: "inline-source-map"
 };
 

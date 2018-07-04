@@ -12,8 +12,8 @@
             "request": "launch",
             "name": "Launch Chrome against localhost",
             "url": "http://localhost:8080", //Try localhost:3000 if this fails
+            "sourceMaps": true,
             "webRoot": "${workspaceFolder}/main.js",
-            "program": "${workspaceFolder}/main.js"
         }
     ]
 }
