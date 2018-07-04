@@ -14,9 +14,6 @@ import onInputChange from './app/input';
 //Session logic
 import broadcast from './services/session/broadcast';
 
-function foo() {
-  console.log("bar");
-}
 
 /*
 let MainTableF = new MainTable;
@@ -35,13 +32,14 @@ export default class App extends React.Component {
       //this.props.inputId = 0;
         //Bind "this" to functions
       //this.foo = this.foo.bind(this);
+      this
       this.onInputChange = this.onInputChange.bind(this);
       this.onRowButton = this.onRowButton.bind(this);
       this.onColumnButton = this.onColumnButton.bind(this);
       this.onUndoAction = this.onUndoAction.bind(this);
       this.onRedoAction = this.onRedoAction.bind(this);
       this.MainTable = this.MainTable.bind(this);
-      this.onResetAction = this.onResetAction.bind(this);
+      //this.onResetAction = this.onResetAction.bind(this);
       this.broadcast = this.broadcast.bind(this);
   
   
@@ -69,33 +67,64 @@ export default class App extends React.Component {
       
     }
   
-    //Pull in external functions
+onRowButton(event){
 
-//MainTable;
-/*
- onUndoActionF = new onUndoAction;
- onRedoActionF = new onRedoAction;
- onInputChangeF = new onInputChange;
- broadcastF = new broadcast;
- fooF = new foo;
- */
+  let copy = [...this.state.gridState];
+  let undoCopy = [...this.state.undo];
+  let last = copy[copy.length-1];
 
- /*
-    fooF;
+  //Update the rows 
+  let update = last.rows + 1;
 
-    broadcastF;
+  let updateObj = {rows: update, columns: last.columns, type:"cell"};
+  let spliced = copy.push(updateObj);
+  let undoSpliced = undoCopy.push(updateObj);
 
-    onInputChangeF;
 
-    onUndoActionF;
+  //copy the newUndo array and do it similarly
 
-    onRedoActionF;
+  this.setState({gridState: copy});  //might instead be copy 
+  this.setState({undo: undoCopy});
+    /* 
 
-    MainTableF;
-*/ 
+    this.setState({rows: this.state.gridState.rows + 1});
 
+    let undoStateCopy = [...this.state.undo];
+    let newUndo = undoStateCopy.splice(undoStateCopy);
+    let undoAddition = newUndo.push("rowAdd");
+
+    this.setState({undo: newUndo})
+
+    */
+}
+onColumnButton(event){
+
+  let copy = [...this.state.gridState];
+  let undoCopy = [...this.state.undo];
+
+  let last = copy[copy.length-1];
+
+  let update = last.columns + 1;
+
+  let updateObj = {rows: last.rows, columns: update, type:"cell"};
+  let spliced = copy.splice(copy.length-1, 1, updateObj);
+  let undoSpliced = undoCopy.splice(undoCopy.length-1, 1, updateObj);
+
+
+  this.setState({gridState: spliced});  //might instead be copy 
+  this.setState({undo: undoSpliced});
+  /*
+    this.setState({columns: this.state.gridState.columns + 1});
+
+    let undoStateCopy = [...this.state.undo];
+    let newUndo = undoStateCopy.splice(undoStateCopy);
+    let undoAddition = newUndo.push("colAdd");
+
+    this.setState({undo: newUndo})
+    */
+}
       MainTable(){
-        MainTable;
+        MainTable.tableGen;
       }
 
       broadcast(){
@@ -135,9 +164,9 @@ UNSAFE_componentWillMount(){
     render(){
         return (
           <div>
-          <table id = {this.props.tableID}>
-          <tbody onload = {this.broadcast}>  
-            {this.MainTableF}
+          <table>
+          <tbody onLoad = {this.broadcast()}>  
+            {this.MainTable}
           </tbody>
           </table>
           <ButtonMenu onRow = {this.onRowButton} onCol = {this.onColumnButton} undo ={this.onUndoAction} redo = {this.onRedoAction} reset = {this.onResetAction} />

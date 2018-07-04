@@ -1,12 +1,17 @@
 import React from 'react';
 
-import {App} from '../../../main';
+//import { editUser } from ‘containers/AppContainer/actions’;
 
-export const MainTable = () => {
+//import {App} from '../../../main';
 
+ class baseTable extends React.Component{
+  constructor(props){
+    //properties
+    super(props);
+  }
         //Idea 1: for each element of the table, make sure to 
-      
-              let i;
+      tableGen(){
+        let i;
              let gridArray=[];
              let iter = 4;
              let length = this.state.gridState.length-1;
@@ -81,6 +86,11 @@ export const MainTable = () => {
                 }
                 */
               return gridArray;
+
+      }
+              
 }
 
-//export default MainTable;
+const MainTable = new baseTable;
+
+export default MainTable;
