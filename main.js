@@ -39,6 +39,7 @@ export default class App extends React.Component {
       this.onUndoAction = this.onUndoAction.bind(this);
       this.onRedoAction = this.onRedoAction.bind(this);
       this.MainTable = this.MainTable.bind(this);
+
       //this.onResetAction = this.onResetAction.bind(this);
       this.broadcast = this.broadcast.bind(this);
   
@@ -124,7 +125,8 @@ onColumnButton(event){
     */
 }
       MainTable(){
-        MainTable.tableGen;
+        let returnVal = MainTable.call(this);
+        return returnVal;
       }
 
       broadcast(){
@@ -166,7 +168,7 @@ UNSAFE_componentWillMount(){
           <div>
           <table>
           <tbody onLoad = {this.broadcast()}>  
-            {this.MainTable}
+            {this.MainTable()}
           </tbody>
           </table>
           <ButtonMenu onRow = {this.onRowButton} onCol = {this.onColumnButton} undo ={this.onUndoAction} redo = {this.onRedoAction} reset = {this.onResetAction} />
