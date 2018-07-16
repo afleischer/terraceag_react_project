@@ -1,6 +1,6 @@
 import React from 'react';
 
-const onInputChange = function onInputChange(){
+export const onInputChange = function onInputChange(){
     let cellValuesCopy = [...this.state.cellValues];
     let length = cellValuesCopy.length;
     
@@ -14,6 +14,4 @@ const onInputChange = function onInputChange(){
         broadcast(this.state);
 }
 
-
-
-export default onInputChange
+//export default onInputChange

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import {onInputChange} from '../../../input';
+
 //import { editUser } from ‘containers/AppContainer/actions’;
 
 //import {App} from '../../../main';

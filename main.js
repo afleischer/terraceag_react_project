@@ -10,20 +10,10 @@ import ButtonMenu from './app/components/button_menu/buttonmenu';
 //App Logic
 import onUndoAction from './app/undo';
 import onRedoAction from './app/redo';
-import onInputChange from './app/input';
+import { onInputChange } from './app/input';
 
 //Session logic
 import broadcast from './services/session/broadcast';
-
-
-/*
-let MainTableF = new MainTable;
-let onUndoActionF = new onUndoAction;
-let onRedoActionF = new onRedoAction;
-let onInputChangeF = new onInputChange;
-let broadcastF = new broadcast;
-let fooF = new foo;
-*/
 
 export default class App extends React.Component {
 
@@ -52,21 +42,24 @@ export default class App extends React.Component {
       //this.props.inputId = 0;
         //Bind "this" to functions
       //this.foo = this.foo.bind(this);
-      this.onInputChange = this.onInputChange.bind(this);
+      //this.onInputChange = this.onInputChange.bind(this);
+
+      this.onInputChange = onInputChange.bind(this);
+      
       this.onRowButton = this.onRowButton.bind(this);
       this.onColumnButton = this.onColumnButton.bind(this);
-      this.onUndoAction = this.onUndoAction.bind(this);
-      this.onRedoAction = this.onRedoAction.bind(this);
+
+      this.onUndoAction = onUndoAction.bind(this);
+      this.onRedoAction = onRedoAction.bind(this);
+
+
+      //bind imported MainTable function and calling MainTableGet function
+      this.MainTableGet = this.MainTableGet.bind(this);
       this.MainTable = MainTable.bind(this);
       //this.baseTable = baseTable.bind(this);
-      this.MainTableGet = this.MainTableGet.bind(this);
       //this.onResetAction = this.onResetAction.bind(this);
-      this.broadcast = this.broadcast.bind(this);
-  
-  
-      //state
 
-
+      this.broadcast = broadcast.bind(this);
       
     }
   
@@ -155,23 +148,6 @@ onColumnButton(event){
         onRedoAction(){
           onRedoAction;
         }
-
-    /*
-UNSAFE_componentWillMount(){
-    foo(){
-      fooF;
-    }
-    broadcastF;
-
-    onInputChangeF;
-
-    onUndoActionF;
-
-    onRedoActionF;
-
-    MainTableF;
-}
-*/
 
 
     render(){

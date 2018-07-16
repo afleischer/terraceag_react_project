@@ -6,7 +6,7 @@ const broadcast =  function broadcast(params){
 
     //when state changes, broadcast the changes 
     const channel = new BroadcastChannel('state-info');
-    let stateData = params.state;
+    let stateData = this.state;
 
     if(!stateData){
       return; 
