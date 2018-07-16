@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 
 
 //Components
-import MainTable from './app/components/input_table/maintable';
+import { MainTable } from './app/components/input_table/maintable';
+//import baseTable from './app/components/input_table/maintable';
 import ButtonMenu from './app/components/button_menu/buttonmenu';
 
 //App Logic
@@ -29,21 +30,6 @@ export default class App extends React.Component {
     constructor(props){
       //properties
       super(props);
-      //this.props.inputId = 0;
-        //Bind "this" to functions
-      //this.foo = this.foo.bind(this);
-      this.onInputChange = this.onInputChange.bind(this);
-      this.onRowButton = this.onRowButton.bind(this);
-      this.onColumnButton = this.onColumnButton.bind(this);
-      this.onUndoAction = this.onUndoAction.bind(this);
-      this.onRedoAction = this.onRedoAction.bind(this);
-      this.MainTable = MainTable.bind(this);
-      this.MainTableGet = this.MainTableGet.bind(this);
-      //this.onResetAction = this.onResetAction.bind(this);
-      this.broadcast = this.broadcast.bind(this);
-  
-  
-      //state
       this.state = {
   
         gridState: [
@@ -63,6 +49,23 @@ export default class App extends React.Component {
         {cellId: 0, cellValue: "first", type:"value"}],
         redo: ["empty"],
       }
+      //this.props.inputId = 0;
+        //Bind "this" to functions
+      //this.foo = this.foo.bind(this);
+      this.onInputChange = this.onInputChange.bind(this);
+      this.onRowButton = this.onRowButton.bind(this);
+      this.onColumnButton = this.onColumnButton.bind(this);
+      this.onUndoAction = this.onUndoAction.bind(this);
+      this.onRedoAction = this.onRedoAction.bind(this);
+      this.MainTable = MainTable.bind(this);
+      //this.baseTable = baseTable.bind(this);
+      this.MainTableGet = this.MainTableGet.bind(this);
+      //this.onResetAction = this.onResetAction.bind(this);
+      this.broadcast = this.broadcast.bind(this);
+  
+  
+      //state
+
 
       
     }
@@ -129,8 +132,10 @@ onColumnButton(event){
       MainTableGet(){
         //let returnVal = MainTable.call(this);
         //return returnVal;
-        let returnVal = MainTable;
+        let returnVal = this.MainTable();
         return returnVal;
+        //return baseTable.tableGen;
+
       }
       
     

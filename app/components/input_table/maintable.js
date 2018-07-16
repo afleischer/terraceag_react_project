@@ -4,16 +4,17 @@ import React from 'react';
 
 //import {App} from '../../../main';
 
-export const MainTable = () => {
+export const MainTable = function(){
   let i;
   let gridArray=[];
   let iter = 4;
+  console.log(this);
   let length = this.state.gridState.length-1;
 
 
-  inputId = this.state.cellValues.cellId;
+  let inputId = this.state.cellValues.cellId;
 
-  console.log("The Rows are:"+this.state.gridState[length-1].rows);
+  //console.log("The Rows are:"+this.state.gridState[length-1].rows);
   
   for(let i = 0; i <=this.state.gridState[length].rows; i++){
    let children = [];
@@ -85,7 +86,7 @@ export const MainTable = () => {
 
 
 
- class baseTable extends React.Component{
+ export default class baseTable extends React.Component{
   constructor(props){
     //properties
     super(props);
@@ -174,5 +175,4 @@ export const MainTable = () => {
 
 //const MainTable = new baseTable;
 
-
-export default MainTable;
+//export default MainTable;
