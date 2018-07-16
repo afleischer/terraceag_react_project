@@ -32,14 +32,13 @@ export default class App extends React.Component {
       //this.props.inputId = 0;
         //Bind "this" to functions
       //this.foo = this.foo.bind(this);
-      this
       this.onInputChange = this.onInputChange.bind(this);
       this.onRowButton = this.onRowButton.bind(this);
       this.onColumnButton = this.onColumnButton.bind(this);
       this.onUndoAction = this.onUndoAction.bind(this);
       this.onRedoAction = this.onRedoAction.bind(this);
-      this.MainTable = this.MainTable.bind(this);
-
+      this.MainTable = MainTable.bind(this);
+      this.MainTableGet = this.MainTableGet.bind(this);
       //this.onResetAction = this.onResetAction.bind(this);
       this.broadcast = this.broadcast.bind(this);
   
@@ -124,10 +123,17 @@ onColumnButton(event){
     this.setState({undo: newUndo})
     */
 }
-      MainTable(){
-        let returnVal = MainTable.call(this);
+  
+//MainTable;
+
+      MainTableGet(){
+        //let returnVal = MainTable.call(this);
+        //return returnVal;
+        let returnVal = MainTable;
         return returnVal;
       }
+      
+    
 
       broadcast(){
         broadcast;
@@ -168,7 +174,7 @@ UNSAFE_componentWillMount(){
           <div>
           <table>
           <tbody onLoad = {this.broadcast()}>  
-            {this.MainTable()}
+            {this.MainTableGet()}
           </tbody>
           </table>
           <ButtonMenu onRow = {this.onRowButton} onCol = {this.onColumnButton} undo ={this.onUndoAction} redo = {this.onRedoAction} reset = {this.onResetAction} />
