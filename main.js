@@ -103,11 +103,13 @@ onColumnButton(event){
   let update = last.columns + 1;
 
   let updateObj = {rows: last.rows, columns: update, type:"cell"};
-  let spliced = copy.splice(copy.length-1, 1, updateObj);
+  //let spliced = copy.splice(copy.length-1, 1, updateObj);
+  let updated = copy.push(updateObj);
   let undoSpliced = undoCopy.splice(undoCopy.length-1, 1, updateObj);
 
 
-  this.setState({gridState: spliced});  //might instead be copy 
+  //this.setState({gridState: spliced});  //might instead be copy 
+  this.setState({gridState: copy});
   this.setState({undo: undoSpliced});
   /*
     this.setState({columns: this.state.gridState.columns + 1});
